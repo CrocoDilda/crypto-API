@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../static/fonts/fonts.css">
+	<link rel="stylesheet" href="../static/styles/style_zero.css">
+	<link rel="stylesheet" href="../static/styles/global.css">
+	<link rel="stylesheet" href="../static/styles/style.css">
+	<link rel="dns-prefetch" href="https://www.cbr-xml-daily.ru/" /> <!-- Ссылка апи курса валют --> 
+	<title>Crypto</title>
+</head>
+<body>
+	<header class="header">
+		<div class="header--top">
+			<ul class="header--top_info header--top_element">
+				<li data-usd="USD" class="header--top_item">Курс рубля к доллару: </li>
+				<li data-eur="EUR" class="header--top_item">Курс рубля к евро: </li>
+				<li data-gbp="GBP стерлинга" class="header--top_item">Курс рубля к фунту стерлинга: </li>
+				<li class="header--top_item">Ту зе мунд!</li>
+			</ul>
+			<ul class="header--top_interface header--top_element">
+				<li class="header--top_item">Халвинг 20.04.2024</li>
+				<li class="header--top_item">Русский</li> 
+				<li  class="header--top_item header--top-valute">
+					<button class="button--dropdown">
+							<p data-valuteName>USD
+								<svg class="button--dropdown_icon">
+									<use xlink:href="../static/icons/interface-icon/interface-sprite.svg#arrow"></use>
+								</svg>
+							</p>
+						<menu data-headerDropdown class="dropdown small--dropdown">
+							<li class="dorpdown--item">USD</li>
+							<li class="dorpdown--item">EUR</li>
+							<li class="dorpdown--item">RUB</li>
+							<li class="dorpdown--item">GBP</li>
+						</menu>
+						</button>
+				</li>
+				<li class="header--top_item">
+					<button  data-colorTheme>
+						<svg class="header--icon header--icon_sun">
+							<use xlink:href="../static/icons/interface-icon/interface-sprite.svg#sun"></use>
+						</svg>
+					</button>
+				</li>
+					<button class="header--authorization_wrapper">
+						<svg class="header--icon header--icon_authorization">
+							<use xlink:href="../static/icons/interface-icon/interface-sprite.svg#authorization"></use>
+						</svg>
+					</button>
+				</li>
+			</ul>
+		</div>
+	</header>
+	<main>
+		<section class="hero container">
+			<h1 class="hero--title">Актуальный курс топ 100 криптовалют по рыночной капитализации</h1>
+			<div class="options">
+				<div class="options--left">
+					<form data-form class="opions--form">
+						<svg class="options--icon">
+							<use xlink:href="../static/icons/interface-icon/interface-sprite.svg#search"></use>
+						</svg>
+						<input autocomplete="off" type="text" placeholder="Фильтр монет" class="options--input">
+						<svg class="options--icon">
+							<use xlink:href="../static/icons/interface-icon/interface-sprite.svg#arrow"></use>
+						</svg>
+						<menu class="dropdown form--dropdown hidden">
+							<li class="dropdown--item dropdown--item_nothing">Ничего не найдено</li>
+						</menu>
+					</form>
+					<button class="options--button">ТАБЛИЦА
+						<svg class="options--icon">
+							<use xlink:href="../static/icons/interface-icon/interface-sprite.svg#table"></use>
+						</svg>
+					</button>
+					<button class="options--button">ФИЛЬТРЫ
+						<svg class="options--icon">
+							<use xlink:href="../static/icons/interface-icon/interface-sprite.svg#options"></use>
+						</svg>
+					</button>
+				</div>
+				<div class="options--right">
+					<button data-menuArrow="-" class="options--button_arrow options--button_arrow-left">
+						<svg class="options--icon">
+							<use xlink:href="../static/icons/interface-icon/interface-sprite.svg#arrow"></use>
+						</svg>
+					</button>
+					<button data-menuArrow="+" class="options--button_arrow options--button_arrow-right">
+						<svg class="options--icon">
+							<use xlink:href="../static/icons/interface-icon/interface-sprite.svg#arrow"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+			<table class="crypto">
+				<thead class="crypto--head">
+					<tr>
+						<th class="crypto--head_item">
+							<svg class="options--icon">
+								<use xlink:href="../static/icons/interface-icon/interface-sprite.svg#star1"></use>
+							</svg>
+						</th>
+						<th class="crypto--head_item">#</th>
+						<th class="crypto--head_item">Название</th>
+						<th class="crypto--head_item">Цена</th>
+						<th class="crypto--head_item">Изм. (24ч)</th>
+						<th class="crypto--head_item">Изм. (7д)</th>
+						<th class="crypto--head_item">Капитализация</th>
+						<th class="crypto--head_item">Объём (24ч)</th>
+						<th class="crypto--head_item">В обращении</th>
+					</tr>
+				</thead>	
+				<tbody data-cryptoBody class="crypto--body">
+					<tr class="crypto--body_wrapper">
+						<td>*</td>
+						<td>1</td>
+						<td><img src="../static/icons/crypto-icons/btc.svg" alt="" class="crypto--icon">B bitcoin BTC</td>
+						<td>1234</td>
+						<td>+1%</td>
+						<td>$ 12.79B</td>
+						<td>BTC 19.69M</td>
+						<td>Обращ</td>
+						<td>граф</td>
+					</tr>
+					<tr class="crypto--body_wrapper">
+						<td>*</td>
+						<td>2</td>
+						<td><img src="../static/icons/crypto-icons/btc.svg" alt="" class="crypto--icon">B bitcoin BTC</td>
+						<td>1234</td>
+						<td>+1%</td>
+						<td>$ 12.79B</td>
+						<td>BTC 19.69M</td>
+						<td>Обращ</td>
+						<td>граф</td>
+					</tr>
+					<tr class="crypto--body_wrapper">
+						<td>*</td>
+						<td>3</td>
+						<td><img src="../static/icons/crypto-icons/btc.svg" alt="" class="crypto--icon">B bitcoin BTC</td>
+						<td>1234</td>
+						<td>+1%</td>
+						<td>$ 12.79B</td>
+						<td>BTC 19.69M</td>
+						<td>Обращ</td>
+						<td>граф</td>
+					</tr>
+					<tr class="crypto--body_wrapper">
+						<td>*</td>
+						<td>4</td>
+						<td><img src="../static/icons/crypto-icons/btc.svg" alt="" class="crypto--icon">B bitcoin BTC</td>
+						<td>1234</td>
+						<td>+1%</td>
+						<td>$ 12.79B</td>
+						<td>BTC 19.69M</td>
+						<td>Обращ</td>
+						<td>граф</td>
+					</tr>
+					<tr class="crypto--body_wrapper">
+						<td>*</td>
+						<td>5</td>
+						<td><img src="../static/icons/crypto-icons/btc.svg" alt="" class="crypto--icon">B bitcoin BTC</td>
+						<td>1234</td>
+						<td>+1%</td>
+						<td>$ 12.79B</td>
+						<td>BTC 19.69M</td>
+						<td>Обращ</td>
+						<td>граф</td>
+					</tr>
+				</tbody>
+			</table>
+			<div data-setings class="settings">
+				<p class="settings--description">Всего элементов</p>
+				<div class="settings--wrapper">
+					<div data-menuArrow="-" class="settings--wrapper_arrow">
+						<svg class="settings--dropdown_icon">
+							<use xlink:href="../static/icons/interface-icon/interface-sprite.svg#arrow"></use>
+						</svg>
+					</div>
+					<menu class="settings--menu">
+						<li class="settings--menu_item settings--menu_item-active">1</li>
+					</menu>
+					<div data-menuArrow="+" class="settings--wrapper_arrow">
+						<svg class="settings--dropdown_icon">
+							<use xlink:href="../static/icons/interface-icon/interface-sprite.svg#arrow"></use>
+						</svg>
+					</div>
+				</div>
+				<p class="settings--quantity">Показывать по
+					<button class="button--dropdown">
+						<p> 10
+							<svg class="button--dropdown_icon">
+								<use xlink:href="../static/icons/interface-icon/interface-sprite.svg#arrow"></use>
+							</svg>
+						</p>
+					<menu data-menu-tfooter-dropdown class="dropdown small--dropdown settings--dropdown">
+						<li class="dorpdown--item">10</li>
+						<li class="dorpdown--item">25</li>
+						<li class="dorpdown--item">50</li>
+						<li class="dorpdown--item">100</li>
+					</menu>
+					</button>
+				</p>
+			</div>
+		</section>
+	</main>
+	<footer class="footer"></footer>
+	<script src="//www.cbr-xml-daily.ru/daily_jsonp.js" async></script>
+	<script src="../static/scripts/script.js"></script>
+</body>
+</html>
