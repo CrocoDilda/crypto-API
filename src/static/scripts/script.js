@@ -10,8 +10,8 @@ const form = document.querySelector('[data-form]')
 const settings = document.querySelector('[data-setings]')
 const tableFooterDropdown = document.querySelector('[data-menu-tfooter-dropdown]')
 const favoriteDate = localStorage.getItem('coinList')
+const reset = document.querySelector('[data-reset]')
 
-let themeValue = 'dark'
 let controlValueVariable = 1_000_000_000_000
 let valutePrice = 1
 let valuteSimvol = "$"
@@ -22,11 +22,26 @@ let colomnIndex = 1
 let settingsMenuLength
 let favoriteCoinsList = {}
 
+// проверка тёмной темы на содержимое localstorage
+if (localStorage.getItem('themeValue') == null || localStorage.getItem('themeValue') == '') {
+	localStorage.setItem('themeValue', true)
+	darkMode (JSON.parse(localStorage.getItem('themeValue')))
+} else {
+	darkMode (JSON.parse(localStorage.getItem('themeValue')))
+}
 
-darkMode (themeValue)
+console.log(Storage.length)
+
+// слушатель на кнопку перезагрузки
+reset.addEventListener('click', () => {
+	localStorage.clear()
+	location.reload()
+})
+
 // слушатель для смены цветовой темы
 colorTheme.addEventListener('click', () => {
-	darkMode (themeValue)
+	changeColorJson ()
+	darkMode (JSON.parse(localStorage.getItem('themeValue')))
 })
 
 // слушатель блока смены валют
@@ -104,7 +119,6 @@ cryptoBody.addEventListener('click', (element) => {
 		favoriteCoinsList[tdAttrValue] = !favoriteCoinsList[tdAttrValue]
 		localStorage.setItem('coinList', JSON.stringify(favoriteCoinsList))
 	}
-	
 })
 
 // функция получения курса валют
@@ -156,13 +170,12 @@ function cryptoBodyData (cryptoCoinArray) {
 // Функция тёмной темы
 function darkMode (colorMode) {
 	const path = document.documentElement.style
-	if (colorMode === 'dark') {
+	if (colorMode == true) {
 		path.setProperty('--text-color', 'white')
 		path.setProperty('--background-color', '#161b20')
 		path.setProperty('--allocation-color', '#292d30')
 		path.setProperty('--icon--color', '#58667e')
 		path.setProperty('--color-tab', '#063258')
-		themeValue = 'light'
 		buttonIcon(colorTheme, 'sun')
 	} else {
 		path.setProperty('--text-color', 'balck')
@@ -170,7 +183,6 @@ function darkMode (colorMode) {
 		path.setProperty('--allocation-color', '#eff2f5')
 		path.setProperty('--icon--color', '#58667e')
 		path.setProperty('--color-tab', '#eef4fa')
-		themeValue = 'dark'
 		buttonIcon(colorTheme, 'moon')
 	}
 }
@@ -180,9 +192,14 @@ function buttonIcon(tag, name) {
 	tag.innerHTML = `
 	<svg class="header--icon header--icon_${name}">
 		<use xlink:href="../static/icons/interface-icon/interface-sprite.svg#${name}"></use>
-	</svg>
-	`
+	</svg>`
 }
+
+// функция смены цвета в localstorage
+function changeColorJson () {
+	localStorage.setItem('themeValue', !JSON.parse(localStorage.getItem('themeValue')))
+}
+
 
 // функция для форматирования числа 
 function palaceNum(num, controlValue) {

@@ -99,15 +99,20 @@ body {
 	grid-auto-flow: column;
 }
 
-.header--top_info {
-}
-
 .header--top_item {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	font-size: 0.75rem;
 	margin-right: 10px;;
+}
+
+.button--reset {
+	color: var(--text-color);
+	transition: .2s;
+	&:hover {
+		color: var(--color-main-blue);
+	}
 }
 
 .header--top-valute {
